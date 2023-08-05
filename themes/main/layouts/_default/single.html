@@ -1,0 +1,100 @@
+{{ define "main" }}
+{{ $related :=  .Site.RegularPages.Related . }}
+
+<main class="blog container">
+    <div class="row m-0">
+        <div class="col-lg-2">
+            <div class="sticky">
+                <div class="toc-title">Page Outline</div>
+                {{ .TableOfContents }}
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="container">
+                <div class="blog-read">// {{ add (div .WordCount 200) 1 }} min read //</div>
+                <div class="text-2xl blog-title">{{ .Title }}</div>
+                <div class="blog-publish" datetime="2020-07-20T00:00:00Z">Published on {{ .PublishDate.Format "January 2, 2006" }}</div>
+                {{ $taxonomy := "tags" }} {{ with .Param $taxonomy }}
+                    <ul class="tag">
+                    {{ range $index, $tag := . }} {{ with $.Site.GetPage (printf "/%s/%s"
+                    $taxonomy $tag) -}}
+                        <li>
+                            <a href="{{ .Permalink }}">{{ $tag | urlize }}</a>
+                        </li>
+                    {{- end -}} {{- end -}}
+                    </ul>
+                {{ end }}
+
+                <div id="PostHeader" class="blog-cover rounded-4" style="background: 
+                {{ if .Params.gradients }}
+                    {{ if eq (len .Params.gradients) 2 }} linear-gradient(135deg, {{ index .Params.gradients 0 }} 0%, {{ index .Params.gradients 1 }} 100%); {{ end }}
+                {{end}}">
+                </div>
+
+                {{ .Content }}
+            </div>
+
+            <div class="about py-5">
+                <div class="about-content">
+                    <div class="about-title">About the authors</div>
+                    <div class="about-profile">
+                        <div class="about-img" style="background-color: bisque;">Peter Tran</div>
+                        <div class="about-info">
+                            <div class="about-descrition">Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container py-5">
+                <div class="row">
+                    {{ range first 6 $related }}
+                    <div class="col-md-4"> 
+                        <div class="d-flex justify-content-center">
+                            {{ .Scratch.Set "isSummary" false }}
+                            {{ .Scratch.Set "isMini" true }}
+                            {{ partial "post.html" . }}
+                        </div>
+                    </div>
+                    {{ end }}    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <h3 class="topic-title">Popular Topics</h3>
+            <ul class="topic">
+                {{ range first 10 .Site.Taxonomies.tags.ByCount }}
+                <!-- If need there is {{ .Count }} -->
+                <li><a href="/blog/tags/{{ .Name }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+
+            <div>
+                <h3 class="recommend-title">Related Blogs</h3>
+
+                {{ range first 3 $related }}
+                <a class="recommend-item" href="{{ .Permalink }}">
+                    {{ .Title }}
+                    <div class="recommend-view">
+                        View <iconify-icon class="px-2" icon="eva:external-link-outline"></iconify-icon>
+                    </div>
+                </a>
+                {{ end }}  
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+	let codeblocks = document.getElementsByClassName('highlight');
+	for (let code of codeblocks) {
+	  
+		code.firstChild.style.backgroundColor = 'rgb(41, 45, 62)';
+		code.firstChild.style.padding = '15px';
+		code.firstChild.style.borderRadius = '5px';
+
+		code.firstChild.firstChild.style.border = '0';
+		code.firstChild.firstChild.style.backgroundColor = 'transparent';
+	}
+</script>
+{{ end }}

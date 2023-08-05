@@ -1,0 +1,9 @@
+<div class="pagination">
+    {{if .HasPrev}}
+        <a href="{{ .Prev.URL }}" class="pagination-arrows"><span class="iconify-inline" data-icon="ic:baseline-navigate-before" data-width="24" data-height="24"></span></a>
+    {{end}}
+        <span class="page-number">{{ .PageNumber }} / {{ .TotalPages }}</span>
+    {{if .HasNext}}
+        <a href="{{ .Next.URL }}" class="pagination-arrows"><span class="iconify-inline" data-icon="ic:baseline-navigate-next" data-width="24" data-height="24"></span></a>
+    {{end}}
+</div>

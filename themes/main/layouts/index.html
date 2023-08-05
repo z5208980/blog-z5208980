@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+{{ $paginator := .Paginator }}
+<main class="content" role="main"> 
+    <section class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="topic-title">Popular Topics</h3>
+                <ul class="topic">
+                    {{ $baseURL := .Site.BaseURL }}
+
+                    {{ range first 10 .Site.Taxonomies.tags.ByCount }}
+                    <!-- If need there is {{ .Count }} -->
+                    <li><a href="{{ $baseURL }}/tags/{{ .Name }}">
+                        <div class="topic-main-item">{{ .Name }}</div></a></li>
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    {{ range (.Paginator).Pages }}
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-center">
+                            {{ .Scratch.Set "isSummary" false }}
+                            {{ .Scratch.Set "isMini" false }}
+                            {{ partial "post.html" . }}
+                        </div>
+                    </div>        
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        {{ partial "pagination.html" $paginator }}
+    </section>
+</main>
+{{ end }}

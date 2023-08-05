@@ -1,0 +1,42 @@
+<style>
+    .nav-item {
+        background: none;
+        border: 0px;
+        color: rgb(3, 27, 78);
+        font-size: 14px;
+        font-weight: 500;
+
+        -webkit-box-align: center;
+        align-items: center;
+        /* border-bottom: 2px solid rgb(0, 105, 255); */
+        display: flex;
+        margin: 0px 8px;
+        padding: 2px 8px 0px;
+        text-decoration: none;
+        transition: color 0.15s linear 0s;
+    }
+
+    .nav-title {
+        display: inline-block;
+        margin-top: 6px;
+        width: 120px;
+        font-weight: 900;
+    }
+
+</style>
+
+<div id="" class="nav py-3 sticky-top bg-white border-bottom">
+    <div class="container">
+        <div class="w-100">
+            <div class="d-flex">
+                <a class="nav-item" href="{{ .Site.BaseURL }}">
+                    <div class="nav-title h5">
+                        {{ .Site.Author.name }}
+                    </div>
+                </a>
+                <a class="nav-item" href="{{ .Site.BaseURL }}">Home</a>
+                <a class="nav-item" href="{{ .Site.BaseURL }}">Profile</a>
+            </div>
+        </div>
+    </div>
+</div>

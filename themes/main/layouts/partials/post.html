@@ -1,0 +1,34 @@
+<article class="article">
+    <a class="a-style" href="{{ .Permalink }}">
+        <div class='card {{ if .Scratch.Get "isMini" }}py-3{{ end }}'>
+            {{ if not (.Scratch.Get "isMini") }}
+            <div class="card-coverpage card-img" style="background-image:
+                {{ if .Params.gradients }}
+                    {{ if eq (len .Params.gradients) 2 }} linear-gradient(135deg, {{ index .Params.gradients 0 }} 0%, {{ index .Params.gradients 1 }} 100%); {{ end }}
+                {{ end }}"
+            >
+                <img src="{{ .Params.image }}" height="75%" />
+            </div>
+            {{ end }}
+            <div class="card-body">
+                <div class="article-head">// {{ add (div .WordCount 200) 1 }} min read //</div>
+                <div class="article-title">{{ .Title }}</div>
+                <p class="article-publish" datetime="2020-07-20T00:00:00Z">{{ .PublishDate.Format "January 2, 2006" }}</p>
+
+                {{ if not (.Scratch.Get "isMini") }}
+                <span class="tag">
+                    <a href=""></a>
+                </span>
+                <ul class="tag">
+                    {{ $title := .Site.BaseURL }}
+                    {{ range $tag := .Params.tags }}
+                        <li>
+                            <a href="{{ $title }}/tags/{{ lower $tag }}">{{ $tag }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </div>    
+        </div>
+    </a>
+</article>

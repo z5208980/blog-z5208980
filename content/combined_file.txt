@@ -1,0 +1,772 @@
+---
+title: "Simply Cryptocurrency - Blockchain"
+date: "2021-04-23"
+tags: ["Cryptocurrency", "Blockchain"]
+image: ""
+gradients: ["#ff9966", "#ff5e62"]
+---
+
+## Blockchain
+To understand blockchain, it is simply a growing list of `blocks` that are linked. A block usually contains,
+cyptographic hash of prev block
+Timestamp
+Transaction data (in form of a Merkle Tree)
+The first ever block on Bitcoin blockchain was known as the **Genesis Block**. It gave rise to the entire blockchain of Bitcoin trading system.
+
+The word *chain* in `blockchain` work like this. Say there was an initialised block will the data, `Hello` that is given a hash, say `AA`. The hash `AA` is then used in as a hash key for the next block `World` given a hash `BB` and it continues. The blockchain would look like this
+
+Hello	AA
+WorldAA	BB
+ByeBB	CC
+
+This sort of chaining effect, where if one block is altered it will affect the entire database (avalanche effect). This ensure that blockchains are **decentralized** and
+
+### Merkle Tree
+Merkle Tree was named after Ralph Merkle, is a cryptography that use Hash Trees
+On average, the time complexity of solving a merle tree would be 
+
+### Decentralisation
+One of the many reasons that cryptocurrency use blockchain as its technology is not just for data security and fault tolerance but also for the decentralisation. Basically decentralisation is the process of distributing power away from a central unit. That is the power exist outside the control of the government and into the people.
+
+In cryptocurrency Terms
+Tx = Transaction
+
+### Ledger
+For those would don’t know anything about accounting or finance, a **ledger** is simply just a *record* or a book that store all transaction made. In cryptocurrency, a ledger is usually public for allow for public verification and proof of work. That means that everyone on the cryptocurrency network will have a copy of the ledger. Technically, a *blockchain* is a kind of ledger were blocks are recorded and stored
+
+### Hashing
+Take any strings. For the example of bitcoin it take in an input of `256 bits` and uses a SHA-256 hashing.
+Advantages of hash is
+Collision ree
+One way function
+
+### Bitcoin Miners
+Anonymity
+Privacy (Bad cause like thing like money laundering)
+Unlinkable
+
+Best practices is to use multiple and refreshed address. To achieve Anonymity, unlinkable and privacy. By failing to do so, your main address can be prone to attacker linking other addresses to the main one and know the transactions belonging to a particular user. This can be further (if the attacker is advanced) reveal their real world identity. All by using a one or a few addresses, rather than new one each time.
+
+Another de-anonymize occurs in the network layer. That is an attacker can determine an IP address on a network. This can be done by a node broadcasting a **new** transaction to the network. The key word is new because that means it highly likely that, that node is creating the transaction. This network can then be traced and linked using real world identity and network exploits. Tor is best use to counter this.
+
+### Online Wallet
+Require identification (KYC)
+Required to keep records, hence zero anonymity
+---
+title: "Simply Cryptocurrency - More In-depth Smart Contract"
+date: "2021-05-31"
+tags: ["Cryptocurrency", "Ethereum"]
+image: ""
+gradients: ["#ff0844", "#ffb199"]
+---
+
+As previously said, smart contracts are user defined code on a blockchain that contain **instructions** to manage a digitalised asset. They are triggered by a user node. That said smart contracts have the properties,
+**Immutable**, meaning the code and instruction cannot be edited or changed
+**deterministic**, meaning that the output or the system involved no randomness in the state.
+**trustworthy**, meaning that it contract is reliable, secure and validated.
+
+Since Ethereum was one of the first to show its powerful use of smart contracts. Smart contracts on Ethereum are executed as **bytecode** which runs on the **Ethereum Virtual Machine (EVM)** on each blockchain node. The bytecode that Ethereum is commonly known as **Solidity**
+
+### Life Cycle of Smart Contracts
+Smart Contracts usually starts with the,
+**Requirement analysis and modelling**. This involves modelling the
+Then **Development** which involved producing the code for the smart contract
+**Testing**, since the contract will be immutable, they must be complete. Testing are done *locally* and on a *testnet*
+**Deployment**. This is when the smart contract is ready to be put onto the production stage on the blockchain. After successful deployment, there will be an *unique address* that is used for interactions with the contract. Smart contracts will remain active, until the host disables it or the contracts reaches it *terminating state* in which the contract will remain on the blockchain network but cannot be executed.
+
+During this, we need to account for the smart contract's fee commonly known as *gas*. Gas is a payment that is required when a transactions triggers the smart contract. Several factors needs to be considered including,
+Computation
+Bandwidth requirement
+Memory and volume of data
+For the above, we need to ensure that the testing is also used to optimise the smart contract to keep gas fee as low as possible.
+
+### Encounters Experienced
+When a contract is deployed. You should record the **contract address**. This can be typical found with the `to` param. Best to record this using *etherscan*.
+
+For others etheruem accounts to use the contract, they must connect to the *contract address*. They will have restrictions which are enforced in the contract if there is any and making a function call or using the contract will result in a **transaction**.
+
+Sometimes, Warning! Error encountered during contract execution [Out of Gas]
+
+### Terminology
+
+**Web3** - Basic a library in JS that allows us to connect to a blockchain. It is a backend component.---
+title: "Simply Cryptocurrency - Polygon"
+date: "2021-08-13"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/kv55o21n0zvk9yp/matic.png?raw=1"
+gradients: ["#8EC5FC", "#E0C3FC"]
+---
+
+## Polygon
+Previously known as **Matic Network**, **Polygon** is a *layer 2* scaling solution (first launched in 2017) that utilises there **Polygon SDK**, a toolkits that developers can use to achieve secure and easy to scale applications. It is used as mentioned to scale applications on the Etheruem Network. It's archecturical design is built with *Plasma Framework* and the Proof of Stake (PoS) mechanism as a **sidechain**. Technically this means that Etheruem can be a **multi-chain** system with the incoperation of the Polygon ecosystem as a connector.
+
+### Layer 2  Solution
+In generatl Layer 2 solutions are like wrappers solutions for Layer 1 blockchainssending the computations off chain (similar to oracles) but also known as *sidechain*. A little about sidechains, is that they are a lesser or smaller blockchain that connects to the mainchain. In this case **Etheruem** is the mainchain (layer 1) and the **Matic chain** is the sidechain (layer 2). Now the way it works is that the tokens that deposit on the main SC (on Etheruem network).
+
+All this is beneficical via, 
+- Increase throughput in mainchain by minimising on chain computations
+- Spread transactions efficiency across the network
+- Reduce computation hence gas fees
+However, from what I can observe, it can
+- add more complexity to the system
+- settlement finality
+
+With this 2 layer solution, developers can use their *SDK* to easily connect their blockchain to Etheruem mainchain via the scalable polygon ecosystem. How the two are able to connect is via **Plasma**. Plasma is framework, that allows for the creation of sidechain to Ethereum's blockchain as a trust security layer. These sidechains like mentioned above, will collectively off chain compute transactions before finalising them on the Etheruem (mainchain). However Plamsa uses one transfers per transaction
+
+#### Rollup
+Just want to add this as a terminology used in blockchain, used to define the above, as in the **aggregation** of transactions off chain inside a smart contract to **reduce fees** and **congestion**. There are many types of rollups, including,
+
+**ZK Rollups**
+Similar method to Plamsa where one transaction per transfer. Rollup bundles hundreds of the *transfers*. **Zero Knowledge proof** used as proof for the batched transactions on Etheruem to validate. Contains **validity proof**.
+
+**Optimistic Rollups**
+Contains **fraud proofs** that are used to provide an *optimisitc view on the world* and hence provide evidence for whether a state transition is incorrect. This is a security feature, as **block producers** are also used. Scalability component for layer 2 whilst retaining layer 1 (Etheruem) security.
+
+### MATIC
+**MATIC** is the token for Polygon, and is generally used for goverance, security and gas fee on Polygon services. Since the ecosystem uses PoS, MATIC is also used for purpose of staking. There is a max supply of **10 000 000 000** ---
+title: "Simply Cryptocurrency - Nano"
+date: "2021-08-20"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/m1n7u59631iqwls/nano.png?raw=1"
+gradients: ["#48c6ef", "#6f86d6"]
+---
+
+## Nano
+Nano is a *lightweight* cryptocurrency that is boasted for very **low latency** and **zero transaction fee**. It was first launch in 2015 and is a simple protocol used for the purposes of easy *peer to peer* transactions without a centralised entity. One of the features is that NANO uses a **block lattice** structure, which is a **DAG** data strcuture from graph theory. What NANO provides is **speed**. Fastest transaction processing compared to most cryptocurrency, making them perfect for payments.
+
+## Directed Acyclic Graph (DAG)
+A little background on *DAG*; it is a direct graph is a graph that consist of directional edges and vertexs. **Acyclic** means that means that there exist *no cycles* meaning.
+
+In relation to blockchain technology (types of **Distributed Ledgers DLT**), this means that transactions are stored on a graph like structure, without any loop back to the previous transactions. This maintains it immutability property. The way I see DAG vs Blockchain is that DAG is a **tree like structure** that expands to the chain **linked list** structure commonly used in blockchain. Of course when considering the two we need to look at the advantages and disadvantages.
+
+In DAG advantages include,
+- Consensus on validating transaction comes from the users on the network, rather than miners. This removes the properties of **gas or fees**.
+- Instrinsically, without miners it will lead to **less energy consumption (environmentally friendly).**
+- With scability efficiency, DAGs can provide **more throughput** and transactions
+
+Disadvantages include,
+- Technically **not fully decentralised** as, they require central co-ordinators to help tackle the issue of reduction of volume in transaction which leads to security vulnerability.
+- Lack of on chain validation of transactions.
+
+### Block Lattice
+In relation to NANO, this means that transactions aren't stored as blocks on a blockchain. Rather the transactions are stored as **vertices** on a DAG structure, with references of the *previous vertices* (maintain blockchain effect). Another note to take into account is that using this type as a DLT, means that each users has its own blockchain (graph). This means that transaction mades are updated on their accounts blockchain rather than a mainnet like Bitcoin and in turn solves the **scability** issue.
+
+*Interesting note is that each block contains a *small PoW* to minigate spam.* Since NANO is *fee-less*, this means a possibility to spam the network, however, adding PoW as a security protocol means that it will take a small effort to add a transaction to a block.
+
+### Open Representative Voting (ORV)
+**ORV** is NANO's concensus mechanism to a block lattice. Again the reasons to use this means that there are no miners and hence **energy efficient**. It works by having NANO addresses vote on a **representative** to vote on their behalf. Their weight of these votes are based in the balance. Representatives elected can be of two types.
+- **Principal Rep** - Nodes whom hold enough **voting power** to the total voting weight . They are responsible for senting out *vote*
+- **Rebroadcasted Rep** - remaining elected nodes will broadcast to other nodes.
+
+Voting achievement is done when there is enough votes to reach a **quorum** in which the block is confirmed.
+
+### NANO (token)
+**NANO** is a crytocurrency with a max supply of **133,248,290**. It is used mainly for the purpose of NANO existance, P2P payments. This includes micro payment, cross border payments like XLM, retail or consumer transactions. However the obvious other is the investing and crytotading like all other tokens.---
+title: "Simply Cryptocurrency - IOTA"
+date: "2021-08-27"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/6zewcjfn5tlw1qp/iota.png?raw=1"
+gradients: ["#CE9FFC", "#7367F0"]
+---
+
+## IOTA Foundation
+IOTA Foundation is the *DLT* solution to the IOTA foundation. Like Nano, it uses a **direct acyclic graph (DAG)**. IOTA started out in 2015, and from what the name implies, it based of the **Internet of Things (IoT)**. Specifically for fee less and secure transactions between devices. The foundation's aim is to create a protocol that allow for devices that are connect and transaction (IoT).
+
+### Tangle
+The distributed ledger of IOTA is labelled as **Tangle**. It was developed to enble microtransitions feelessly for IoT devices in the ecosystem. A little more technical about how the graph works is it starts by having transaction (represented as a **vertex**) join the *Tangle*. As it get confirmed, it chooses **two previous transactions** and connects them with *edges*. This is different to the conventional miners and validator that are typical in *blockchain*. With this, Tangle can confirm blocks of transactions much more faster as there is no wait time. The confirmations are broadcased to all other nodes on the network to get an **unbiased** view of the network state. In the end, there is a **simple PoW** to verify the transaction.
+
+Benefits of Tangle and the use of DAG includes,
+- environmentally friendly (less energy consumption)
+- faster transactions (little to no computation)
+- fee less (no miners)
+- The more nodes the more efficient and secure.
+- Infinite scalability
+- More throughput
+
+### Central Coordinator (Not sure if it removed yet)
+The **Central Coordinator** was a central node from the IOTA foundation that governed the confirmation of valid transactions. This could only of meant one thing, **centralisation**. The coordinator would set zero value transaction at given *milestones*. Transactions that were to reference the transactions would be considered valid.
+
+Fortunately the event of *Coordicide* (killing of the Coordinator) occurred giving rise to **IOTA 2.0**. 
+
+*Though I'm not sure what it is being replaced with a new mechanism or just completely removed with no replacement. Will do some research if have time*
+
+### Fast Probabilistic Consensus (FPC)
+This section was something I had trouble founding information so here's all of the things I've got. So **FPC** is used parallel to the two referencing transactions, when there is a conflict. The many problem is **double spending**. The concensus is able to come in and talk to neigbouring nodes to come to a quick agreement on whether the conflicting transactions should be accepted.
+
+## MIOTA
+**MIOTA** represents **Mega**IOTA and is essentially the equivalent for 1 000 000 IOTA. This is usually application for trading purposes, where selling and buying IOTAs are in units of MIOTA. There is a max supply of **2,779,530,283** tokens.---
+title: "Simply Cryptocurrency - Zilliqa"
+date: "2021-09-03"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/7pdnb691g1gc3a5/zil.png?raw=1"
+gradients: ["#90F7EC", "#32CCBC"]
+---
+
+## Zilliqa
+Zilliqa is a blockchain aimed to use **sharding** as a *Layer 2* scaling solution. Developed in 2017 the purpose of creating a Layer 2 solution is for high througput and speed that other blockchain lack. Zilliqa is its own *public permissionless* blockchain, and Dapp can run on it like Bitcoin and Etheruem, and it claims to be able **higher tps**. This also means that there can be a new *language* developed for Zilliqa known as **Scilla**. Smart contracts programmed in **Scilla**.
+
+There are many nodes in the Zilliqa blockchain
+- Shard nodes - typical **mining** node for a shard. They are the one that will perfom PoW.
+- DS nodes - **Directory Service** for short, these node are mining nodes with the addition.
+- Lookup Nodes
+- Seed Nodes
+- Staked Seed Nodes
+
+### Sharding
+Etheruem has implemented sharding as I mentioned in the Etheruem post. But to recap, sharding is essentially partial of blockchain rather than having the one entire blockchain. It aims to cater for the scalability problem that blockchain inherits. Having a **divide and conquet** concept on a global blockchain will help reduce latency and and increase performance.
+
+In relation to Zilliqa, Zilliqa's blockchain is split in pieces of blockchain known as **shards**. these shards are hence smaller in size and unqiue to other shards. Then nodes will only need to validate a section of the blockchain and less transactions. The added benefit of sharding is that the network can run in **parallel**. Compared to a single global blockchain, seperate shard can work indepedently validating transaction on their own. This scaling solution ensures that **throughput increases linearly with more nodes** on the network. Zilliqa perform **PoW** with the shards.
+
+### Practical Byzantine Fault Tolerance (pBFT)
+**Practical Byzantine Fault Tolerance** is Zilliqa's concensus mechanism. It is used within each shard and it works by having a **leader** elected from each shard with the remaining as **backup** nodes. The leader can then broadcast block out to all the backup nodes in the shard so they can cast wether they agree on the validity of that block. Until or at least 2/3 of all node agress, the record will be accurate and added to the blockchain.
+
+Note that these blocks are **deterministic** (opposed to probabilisitic) finality and hence doesn't require *X confirmation blocks** to get the state of the blockchain. The **latest state block** will always to the trusted one.
+
+## ZIL
+Zil the token for Zilliqa was developed in 2017 and has a max supply of **21 000 000 000**. Like ETH being used to pay gas fee for contract execution on the Etheruem blockchain, ZIL is used as a **utility** token to pay transaction fees and Scilla smart contracts on the Zilliqa blockchain. Other than that it has the purpose of **incentives** for miners.
+
+
+---
+title: "Simply Cryptocurrency - The Graph"
+date: "2021-09-10"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/4znh3u27qxqgxf3/grt.png?raw=1"
+gradients: ["#736EFE", "#5EFCE8"]
+---
+
+## The Graph
+The Graph is an **indexing protocol** used for querying data on distributed networks. It aims to allow application to create public **API** that can help organise and management public data on a blockchain or databases such as on Etheruem, Binance, Cosmos and IPFS. Hence developers building a Dapp, can use and build on those data without a need of a server, rather it uses this public infrasture to collect and manage it data. 
+
+It's decentralisation comes from having nodes on the graph network that can process the requests.
+
+### Nodes
+There are more nodes on the graphs, but I think these two are the most important.
+
+**Indexers** 
+Indexers responsibility is to **stake** GRT that has been provided from users on the network. They in turn will **execute the query requests**. They will earns GRT for their services. Other responsibility is to ensure that the open APIs are available, truthworthy and maintains its decentralised properties.
+
+**Curators**
+Curators are nodes that oragnise the data for the public API created. These API have a sepcial name called **subgraph**. Curators fist analysis these subgraphs and potential subgraphs are signalled to the indexers **(curation)**. Having selected these subgraphs, developers can use them to easily found the more **accurate** data.
+
+**Delegators**
+They earn a portion of GRT from Indexers, since they delegates these indexers.
+
+### Subgraphs
+From the offical documentation, the subgraph is defined as, *which data The Graph will index from Ethereum, and how it will store it. Once deployed, it will form a part of a global graph of blockchain data*. From what I gathered it seem like just an **API** that directs and uses **GraphQL** to query a section of the blockchain that the API has specify. Hence the data will be in JSON format and can be easily managed using **Web3**.
+
+Just want to point out for me, I could use the graph as a framework in Dapp, rather than creating as custom push and pull oracle to store and manage on chain storage. This takes aways the complexity and add abstracts as well as time. However, this means that data is accessible to everyone. Not sure if there are any authentication involve such as API Key or something; but this might remove some of the blockchain properties.
+
+Going a little more technical, you'll need to use their CLI to build and deploy a subgraph. Usually, a subgraph consist of,
+- `subgraph.yaml` - a manifest file that describe the subgraph
+- `schema.graphQL` - schema on how data is structure and queried.
+- `AssemblyScript Mappings`
+
+### GRT
+**GRT** token is the native ERC-20 crytocurrency that powers the graph's blockchain. It purpose is mainly used for **staking** where Indexers nodes can earn GRT for *processing queries*. They can be also used for payments, goverance. They have a max supply of **10,057,044,431**.---
+title: "Simply Cryptocurrency - Harmony"
+date: "2021-09-17"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/ksn59urgkezh9md/one.png?raw=1"
+gradients: ["#c0c0aa", "#1cefff"]
+---
+
+## Harmony
+Harmony is a open blockchain platform that is designed to deploy Dapp. It utilise **sharding** which is aimed to be a tackle the problem Etheruem faces with block creations. For Harmony that is around 2 seconds compared to Etheruem ~14 seconds. On their mainnet, there are 4 shard that contain 1000 nodes.
+
+Sharding has proven to best for **scability** in blockchains. Harmony sharding process is **random**, meaning that it uses Verifiable Delay Function (VDF). 
+
+---
+
+**Verifiable Delay Function (VDF)** 
+*This sections talks about VDF in general.* VDF is a function that takes a N sequential numbers of step to **verify** and **evaluate**. This feature is desirable in decentralised system as it *generates randomness in a trustless environment*. The motivation for VDF is that randomness is very difficult to achieve. Especially on blockchain since randomness there, all suffer the inevitable problem of vulnerability and manipulation on determining how *randomness* is generated. Just a side note, that there is something called VRF, Verifiable Random Function.
+
+---
+
+This randomness ensure high security as it protects the network and the validating nodes by creating an **unbiased** and **unprediectable** manner of electing members of the network.
+
+Another feature in Harmony architecture is the ability to **connect to other blockchains** like Etheruem or Binance Smart Chain.
+
+## Fast Byzantine Fault Tolerance (FBFT)
+In short, Byzantine Fault Tolerance is a protocol to ensure consistency and liveliness in a distrbuted system. FBFT is a concensus, where instead of every validatoring broadcasting their votes, the leader signals to collects validator votes (they are given a multi-signature). This ensures that **O(1)** as the concept of collecting vote comes from that one signature instead of O(N) signature being called from N validators.
+
+## Effective Proof of Stake (EPoS)
+Harmony’s **Effective Proof-of-Stake (EPoS)** is . Going to general PoS, it usually consist of a *comittee*, that has an elected leader and other nodes (validators, block producers etc) that validates the blocks on the blockchain. Again in PoS, the amount of rewards for as an incentive for validating a bock is influenced by the amount of staking. Meaning the more the stake, the higher the reward, leading to the concept of *'rich get richer'* which has sort of a centralised nature.
+
+EPoS is introduced to avoid such and more centralisation concepts in staking, whilst being able to have staking. They do use the idea of ranking validators based on their **amount of stake** for the commitee. The reward however, is distributed in proportion to their **effective stake**. Effective stake is a formula defined as,
+
+```matlab
+effective_stake max(min(1+c) * medium_stake, actual_stake), (1-c) * medium_stake)
+where,
+c = protocol parameter,
+```
+
+The formula functions as high ranked validators will be punished for staking too much whilst the lower ranking validators get that reward, balancing out the stake among validators and most important **minimising centralisation** above.
+
+## ONE
+Harmony's native token is abbrievated as **ONE**. It is used for purposes such as staking (when participating in PoS concensus), gas fees, micropayments, voting and goverance. In terms of staking ONE on Harmony, any dishonest nodes will be filtered out by the secure network and have **double slasing** on their stake. It has a max supply of 12 600 000 000 tokens.---
+title: "Simply Cryptocurrency - Enjin"
+date: "2021-09-24"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/9vjhti995idvvci/enj.png?raw=1"
+gradients: ["#c471f5", "#c471f5"]
+---
+
+## Enjin
+Enjin is project that was launch on the Ethereum network in 2018. The purpose for Enjin was to create **blockchain base games** where users can create clans, chat and obtain and sell virtual items. One of the major features was the ability to allow developers to create and manage **in game items** as virtual tokens on the **Etheruem blockchain**. Specifically NFTs for unique and rare items. The correct term here is **mint** so these virutal items are minted and backed by Enjin Coin (ENJ), meaning they are assigned a value relative the ENJ. These minted tokens are stored on chain in form of **ERC-1155**.
+
+So Enjin isn't a blockchain, rather it a **gaming platform**. In term of technical, there isn't really much I can found so I'm really not sure, but from I can found, it just uses Etheruems goverance and concensus methods. There are various **SDK** to enable functionality such as
+- buying ENJ
+- minting in game items
+- playing game and acquiring virutal items
+- trading
+- selling
+Basically a marketplace for game items. These SDK makes sure that developers minimimse cost and complexity when trying to build and create on ENJ platform.
+
+## ENJ
+Enjin Coin (**ENJ**) is Enjin native **ERC-20** token. Like mentioned early, ENJ is used to an assignment value for the virutal items. ENJ has a max supply of **1 000 000 000** (1 billion).---
+title: "Simply Cryptocurrency - 0x"
+date: "2021-10-01"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/49lliai3q71lnee/0x.png?raw=1"
+gradients: ["#F05F57", "#360940"]
+---
+
+## 0x
+0x is a **protocol** launched in 2017 on the **Etheruem** network. It's purpose is to create easy **Peer to Peer exchanges** on the Etheruem. Through 0x, addresses can trade ERC-20 tokens and (uniquly) ERC-721 NFT on the 0x platform made from smart *contracts*. In more general terms, it is a **DEX**. What makes 0x unique is its ability to allow developers to build on top of their infrastructure creating **exchange functionalities** for applications.
+
+Others additions that the 0x protocol provides are the ability to rollback transactions without the need to pay for gas fee and interoperability between dApps.
+
+## Makers and Takers
+The 0x networks operates with two actors; 
+
+**Makers**
+Makers of a 0x network are users who create a **buy or sell order**
+
+**Takers**
+Takers are those who will fullfil the makers buy or sell requests. 
+
+## 0x Architecture
+**State Channel**
+State channel relies on taking computation *off chain*. This will obviously **cut transaction cost** on chain because it uses less resource. In 0x network, it is the storage of a transaction order that is kept off chain. By doing so, there will be **less congestions** in the network and lower gas fees.
+
+In terms of a concensus mechanism and other protocols, since 0x is built on the Etheruem blockchain, it'll use Etheruem proof etc.
+
+### ZRX
+0x's native token is **ZRX**. It is used for goverance on the 0x platform. This means ZRX holders can influence voting proposal to the protocol. Another major use case is for paying **trading fees** and for **staking** in pools, for ETH rewards.. There is a max supply of **1 000 000 000**.
+
+*In terms of more information about 0x, I really didn't think they have much to offer, When researching for crytocurrency I try to look for unique features. 0x for me was just other like any other DEX out there, boasting about its decentralisation for fast and ease of an exchange with better pricing and a large liquidity pool.*---
+title: "Simply Cryptocurrency - Avalanche"
+date: "2021-10-08"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/alf2blk6q710grk/avax.png?raw=1"
+gradients: ["#FFA8A8", "#FCFF00"]
+---
+
+## Avalanche
+The Avalanche ecosystem used for building **smart contracts** catered to finance such as decentralised finance, trading and economics. Launched in 2020, the smart contract platform is meant to be have the **fastest standard transactions finality** (1 sec) with one of the **most validators** in a network securing the blockchain. This means low cost and **eco-friendly**.
+
+AVAX uses the typical proof of stake concensus mechanism to valid transactions on the blockchains. Since there are **millions** of validators, this process can easily be done. It is said to be able to work with the Etheruem Virtual Machine (EVM) meaning it is compatible with the `Solidity` language.
+
+### Primary Network
+The primary network is the global hub for Avalanche's blockchain,
+- **Exchange Chain (X-Chain)** - The platform used to **trade assets**.
+- **Platform Chain (P-chain** - This is where subnets are managed and validators are coordinated. It contain **metadata** about the Avalanche.
+- **Contract Chain (C-Chain)** - This is where **smart contracts** are created.
+
+Some important to note here is the relationships in the Avalanche network. So, Primary is the top layer, where 
+
+Node on the network which are validators are members to one or more subnets. There exist these **subnets** which will contain a *dynamic* quantity of nodes (validators) and are tasked to achieve concensus to many blockchains. In terms of these validators, they don't have much pravcy as, in order to be a validator to stake rewards and maintain the network, they'll need to give up the **location, KYC and hold a valid licence**.
+
+### Snowman
+Since Avalance uses is a **DAG** rather than a linear *block chain* of hashes, **Snowman** is a concensus protocol that is used specifically for the **linear chain**. It high throughput makes it optimised for smart contract, which the C-chain uses. 
+
+The protocol works like this (the official documentation with detailed out version but here's my take), a transaction whether accepted or rejected is broadcast to `k` number of validators. When a quorum `q` is reached the result is added to a counter `c`. That it if the transaction was accepted at `q` number of nodes, then `valid` is set to `true` and `c` would increase from `1` to `2`. converserly if the transaction was rejected, then the counter resets to `1` and the `valid` is set to `false`. this process is repeat for everyone a response if the same for `x` amount of time. That is `x` is set to `5` and accepted has been `q`ed 5 times, then the transaction is **valid**. Of course the parameters will be set.
+
+## AVAX
+**AVAX** is the native token with only **720 000 000** tokens in existance; meaning there not a lot compared to other cryptocurrencies. `1 nAVAX` is equal to `0.000000001 AVAX`. This low capped asset is used to pay for fees, reward stakers for securing via proof of stake and other **utility services**. A interesting not with AXAX is that **transaction fees made to the network are burnt**, give the **scarcity** to the token. 
+---
+title: "Simply Cryptocurrency - Blockchain"
+date: "2021-04-23"
+tags: ["Cryptocurrency", "Blockchain"]
+image: ""
+gradients: ["#ff9966", "#ff5e62"]
+---
+
+## Blockchain
+To understand blockchain, it is simply a growing list of `blocks` that are linked. A block usually contains,
+cyptographic hash of prev block
+Timestamp
+Transaction data (in form of a Merkle Tree)
+The first ever block on Bitcoin blockchain was known as the **Genesis Block**. It gave rise to the entire blockchain of Bitcoin trading system.
+
+The word *chain* in `blockchain` work like this. Say there was an initialised block will the data, `Hello` that is given a hash, say `AA`. The hash `AA` is then used in as a hash key for the next block `World` given a hash `BB` and it continues. The blockchain would look like this
+
+Hello	AA
+WorldAA	BB
+ByeBB	CC
+
+This sort of chaining effect, where if one block is altered it will affect the entire database (avalanche effect). This ensure that blockchains are **decentralized** and
+
+### Merkle Tree
+Merkle Tree was named after Ralph Merkle, is a cryptography that use Hash Trees
+On average, the time complexity of solving a merle tree would be 
+
+### Decentralisation
+One of the many reasons that cryptocurrency use blockchain as its technology is not just for data security and fault tolerance but also for the decentralisation. Basically decentralisation is the process of distributing power away from a central unit. That is the power exist outside the control of the government and into the people.
+
+In cryptocurrency Terms
+Tx = Transaction
+
+### Ledger
+For those would don’t know anything about accounting or finance, a **ledger** is simply just a *record* or a book that store all transaction made. In cryptocurrency, a ledger is usually public for allow for public verification and proof of work. That means that everyone on the cryptocurrency network will have a copy of the ledger. Technically, a *blockchain* is a kind of ledger were blocks are recorded and stored
+
+### Hashing
+Take any strings. For the example of bitcoin it take in an input of `256 bits` and uses a SHA-256 hashing.
+Advantages of hash is
+Collision ree
+One way function
+
+### Bitcoin Miners
+Anonymity
+Privacy (Bad cause like thing like money laundering)
+Unlinkable
+
+Best practices is to use multiple and refreshed address. To achieve Anonymity, unlinkable and privacy. By failing to do so, your main address can be prone to attacker linking other addresses to the main one and know the transactions belonging to a particular user. This can be further (if the attacker is advanced) reveal their real world identity. All by using a one or a few addresses, rather than new one each time.
+
+Another de-anonymize occurs in the network layer. That is an attacker can determine an IP address on a network. This can be done by a node broadcasting a **new** transaction to the network. The key word is new because that means it highly likely that, that node is creating the transaction. This network can then be traced and linked using real world identity and network exploits. Tor is best use to counter this.
+
+### Online Wallet
+Require identification (KYC)
+Required to keep records, hence zero anonymity
+---
+title: "Simply Cryptocurrency - More In-depth Smart Contract"
+date: "2021-05-31"
+tags: ["Cryptocurrency", "Ethereum"]
+image: ""
+gradients: ["#ff0844", "#ffb199"]
+---
+
+As previously said, smart contracts are user defined code on a blockchain that contain **instructions** to manage a digitalised asset. They are triggered by a user node. That said smart contracts have the properties,
+**Immutable**, meaning the code and instruction cannot be edited or changed
+**deterministic**, meaning that the output or the system involved no randomness in the state.
+**trustworthy**, meaning that it contract is reliable, secure and validated.
+
+Since Ethereum was one of the first to show its powerful use of smart contracts. Smart contracts on Ethereum are executed as **bytecode** which runs on the **Ethereum Virtual Machine (EVM)** on each blockchain node. The bytecode that Ethereum is commonly known as **Solidity**
+
+### Life Cycle of Smart Contracts
+Smart Contracts usually starts with the,
+**Requirement analysis and modelling**. This involves modelling the
+Then **Development** which involved producing the code for the smart contract
+**Testing**, since the contract will be immutable, they must be complete. Testing are done *locally* and on a *testnet*
+**Deployment**. This is when the smart contract is ready to be put onto the production stage on the blockchain. After successful deployment, there will be an *unique address* that is used for interactions with the contract. Smart contracts will remain active, until the host disables it or the contracts reaches it *terminating state* in which the contract will remain on the blockchain network but cannot be executed.
+
+During this, we need to account for the smart contract's fee commonly known as *gas*. Gas is a payment that is required when a transactions triggers the smart contract. Several factors needs to be considered including,
+Computation
+Bandwidth requirement
+Memory and volume of data
+For the above, we need to ensure that the testing is also used to optimise the smart contract to keep gas fee as low as possible.
+
+### Encounters Experienced
+When a contract is deployed. You should record the **contract address**. This can be typical found with the `to` param. Best to record this using *etherscan*.
+
+For others etheruem accounts to use the contract, they must connect to the *contract address*. They will have restrictions which are enforced in the contract if there is any and making a function call or using the contract will result in a **transaction**.
+
+Sometimes, Warning! Error encountered during contract execution [Out of Gas]
+
+### Terminology
+
+**Web3** - Basic a library in JS that allows us to connect to a blockchain. It is a backend component.---
+title: "Simply Cryptocurrency - Polygon"
+date: "2021-08-13"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/kv55o21n0zvk9yp/matic.png?raw=1"
+gradients: ["#8EC5FC", "#E0C3FC"]
+---
+
+## Polygon
+Previously known as **Matic Network**, **Polygon** is a *layer 2* scaling solution (first launched in 2017) that utilises there **Polygon SDK**, a toolkits that developers can use to achieve secure and easy to scale applications. It is used as mentioned to scale applications on the Etheruem Network. It's archecturical design is built with *Plasma Framework* and the Proof of Stake (PoS) mechanism as a **sidechain**. Technically this means that Etheruem can be a **multi-chain** system with the incoperation of the Polygon ecosystem as a connector.
+
+### Layer 2  Solution
+In generatl Layer 2 solutions are like wrappers solutions for Layer 1 blockchainssending the computations off chain (similar to oracles) but also known as *sidechain*. A little about sidechains, is that they are a lesser or smaller blockchain that connects to the mainchain. In this case **Etheruem** is the mainchain (layer 1) and the **Matic chain** is the sidechain (layer 2). Now the way it works is that the tokens that deposit on the main SC (on Etheruem network).
+
+All this is beneficical via, 
+- Increase throughput in mainchain by minimising on chain computations
+- Spread transactions efficiency across the network
+- Reduce computation hence gas fees
+However, from what I can observe, it can
+- add more complexity to the system
+- settlement finality
+
+With this 2 layer solution, developers can use their *SDK* to easily connect their blockchain to Etheruem mainchain via the scalable polygon ecosystem. How the two are able to connect is via **Plasma**. Plasma is framework, that allows for the creation of sidechain to Ethereum's blockchain as a trust security layer. These sidechains like mentioned above, will collectively off chain compute transactions before finalising them on the Etheruem (mainchain). However Plamsa uses one transfers per transaction
+
+#### Rollup
+Just want to add this as a terminology used in blockchain, used to define the above, as in the **aggregation** of transactions off chain inside a smart contract to **reduce fees** and **congestion**. There are many types of rollups, including,
+
+**ZK Rollups**
+Similar method to Plamsa where one transaction per transfer. Rollup bundles hundreds of the *transfers*. **Zero Knowledge proof** used as proof for the batched transactions on Etheruem to validate. Contains **validity proof**.
+
+**Optimistic Rollups**
+Contains **fraud proofs** that are used to provide an *optimisitc view on the world* and hence provide evidence for whether a state transition is incorrect. This is a security feature, as **block producers** are also used. Scalability component for layer 2 whilst retaining layer 1 (Etheruem) security.
+
+### MATIC
+**MATIC** is the token for Polygon, and is generally used for goverance, security and gas fee on Polygon services. Since the ecosystem uses PoS, MATIC is also used for purpose of staking. There is a max supply of **10 000 000 000** ---
+title: "Simply Cryptocurrency - Nano"
+date: "2021-08-20"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/m1n7u59631iqwls/nano.png?raw=1"
+gradients: ["#48c6ef", "#6f86d6"]
+---
+
+## Nano
+Nano is a *lightweight* cryptocurrency that is boasted for very **low latency** and **zero transaction fee**. It was first launch in 2015 and is a simple protocol used for the purposes of easy *peer to peer* transactions without a centralised entity. One of the features is that NANO uses a **block lattice** structure, which is a **DAG** data strcuture from graph theory. What NANO provides is **speed**. Fastest transaction processing compared to most cryptocurrency, making them perfect for payments.
+
+## Directed Acyclic Graph (DAG)
+A little background on *DAG*; it is a direct graph is a graph that consist of directional edges and vertexs. **Acyclic** means that means that there exist *no cycles* meaning.
+
+In relation to blockchain technology (types of **Distributed Ledgers DLT**), this means that transactions are stored on a graph like structure, without any loop back to the previous transactions. This maintains it immutability property. The way I see DAG vs Blockchain is that DAG is a **tree like structure** that expands to the chain **linked list** structure commonly used in blockchain. Of course when considering the two we need to look at the advantages and disadvantages.
+
+In DAG advantages include,
+- Consensus on validating transaction comes from the users on the network, rather than miners. This removes the properties of **gas or fees**.
+- Instrinsically, without miners it will lead to **less energy consumption (environmentally friendly).**
+- With scability efficiency, DAGs can provide **more throughput** and transactions
+
+Disadvantages include,
+- Technically **not fully decentralised** as, they require central co-ordinators to help tackle the issue of reduction of volume in transaction which leads to security vulnerability.
+- Lack of on chain validation of transactions.
+
+### Block Lattice
+In relation to NANO, this means that transactions aren't stored as blocks on a blockchain. Rather the transactions are stored as **vertices** on a DAG structure, with references of the *previous vertices* (maintain blockchain effect). Another note to take into account is that using this type as a DLT, means that each users has its own blockchain (graph). This means that transaction mades are updated on their accounts blockchain rather than a mainnet like Bitcoin and in turn solves the **scability** issue.
+
+*Interesting note is that each block contains a *small PoW* to minigate spam.* Since NANO is *fee-less*, this means a possibility to spam the network, however, adding PoW as a security protocol means that it will take a small effort to add a transaction to a block.
+
+### Open Representative Voting (ORV)
+**ORV** is NANO's concensus mechanism to a block lattice. Again the reasons to use this means that there are no miners and hence **energy efficient**. It works by having NANO addresses vote on a **representative** to vote on their behalf. Their weight of these votes are based in the balance. Representatives elected can be of two types.
+- **Principal Rep** - Nodes whom hold enough **voting power** to the total voting weight . They are responsible for senting out *vote*
+- **Rebroadcasted Rep** - remaining elected nodes will broadcast to other nodes.
+
+Voting achievement is done when there is enough votes to reach a **quorum** in which the block is confirmed.
+
+### NANO (token)
+**NANO** is a crytocurrency with a max supply of **133,248,290**. It is used mainly for the purpose of NANO existance, P2P payments. This includes micro payment, cross border payments like XLM, retail or consumer transactions. However the obvious other is the investing and crytotading like all other tokens.---
+title: "Simply Cryptocurrency - IOTA"
+date: "2021-08-27"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/6zewcjfn5tlw1qp/iota.png?raw=1"
+gradients: ["#CE9FFC", "#7367F0"]
+---
+
+## IOTA Foundation
+IOTA Foundation is the *DLT* solution to the IOTA foundation. Like Nano, it uses a **direct acyclic graph (DAG)**. IOTA started out in 2015, and from what the name implies, it based of the **Internet of Things (IoT)**. Specifically for fee less and secure transactions between devices. The foundation's aim is to create a protocol that allow for devices that are connect and transaction (IoT).
+
+### Tangle
+The distributed ledger of IOTA is labelled as **Tangle**. It was developed to enble microtransitions feelessly for IoT devices in the ecosystem. A little more technical about how the graph works is it starts by having transaction (represented as a **vertex**) join the *Tangle*. As it get confirmed, it chooses **two previous transactions** and connects them with *edges*. This is different to the conventional miners and validator that are typical in *blockchain*. With this, Tangle can confirm blocks of transactions much more faster as there is no wait time. The confirmations are broadcased to all other nodes on the network to get an **unbiased** view of the network state. In the end, there is a **simple PoW** to verify the transaction.
+
+Benefits of Tangle and the use of DAG includes,
+- environmentally friendly (less energy consumption)
+- faster transactions (little to no computation)
+- fee less (no miners)
+- The more nodes the more efficient and secure.
+- Infinite scalability
+- More throughput
+
+### Central Coordinator (Not sure if it removed yet)
+The **Central Coordinator** was a central node from the IOTA foundation that governed the confirmation of valid transactions. This could only of meant one thing, **centralisation**. The coordinator would set zero value transaction at given *milestones*. Transactions that were to reference the transactions would be considered valid.
+
+Fortunately the event of *Coordicide* (killing of the Coordinator) occurred giving rise to **IOTA 2.0**. 
+
+*Though I'm not sure what it is being replaced with a new mechanism or just completely removed with no replacement. Will do some research if have time*
+
+### Fast Probabilistic Consensus (FPC)
+This section was something I had trouble founding information so here's all of the things I've got. So **FPC** is used parallel to the two referencing transactions, when there is a conflict. The many problem is **double spending**. The concensus is able to come in and talk to neigbouring nodes to come to a quick agreement on whether the conflicting transactions should be accepted.
+
+## MIOTA
+**MIOTA** represents **Mega**IOTA and is essentially the equivalent for 1 000 000 IOTA. This is usually application for trading purposes, where selling and buying IOTAs are in units of MIOTA. There is a max supply of **2,779,530,283** tokens.---
+title: "Simply Cryptocurrency - Zilliqa"
+date: "2021-09-03"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/7pdnb691g1gc3a5/zil.png?raw=1"
+gradients: ["#90F7EC", "#32CCBC"]
+---
+
+## Zilliqa
+Zilliqa is a blockchain aimed to use **sharding** as a *Layer 2* scaling solution. Developed in 2017 the purpose of creating a Layer 2 solution is for high througput and speed that other blockchain lack. Zilliqa is its own *public permissionless* blockchain, and Dapp can run on it like Bitcoin and Etheruem, and it claims to be able **higher tps**. This also means that there can be a new *language* developed for Zilliqa known as **Scilla**. Smart contracts programmed in **Scilla**.
+
+There are many nodes in the Zilliqa blockchain
+- Shard nodes - typical **mining** node for a shard. They are the one that will perfom PoW.
+- DS nodes - **Directory Service** for short, these node are mining nodes with the addition.
+- Lookup Nodes
+- Seed Nodes
+- Staked Seed Nodes
+
+### Sharding
+Etheruem has implemented sharding as I mentioned in the Etheruem post. But to recap, sharding is essentially partial of blockchain rather than having the one entire blockchain. It aims to cater for the scalability problem that blockchain inherits. Having a **divide and conquet** concept on a global blockchain will help reduce latency and and increase performance.
+
+In relation to Zilliqa, Zilliqa's blockchain is split in pieces of blockchain known as **shards**. these shards are hence smaller in size and unqiue to other shards. Then nodes will only need to validate a section of the blockchain and less transactions. The added benefit of sharding is that the network can run in **parallel**. Compared to a single global blockchain, seperate shard can work indepedently validating transaction on their own. This scaling solution ensures that **throughput increases linearly with more nodes** on the network. Zilliqa perform **PoW** with the shards.
+
+### Practical Byzantine Fault Tolerance (pBFT)
+**Practical Byzantine Fault Tolerance** is Zilliqa's concensus mechanism. It is used within each shard and it works by having a **leader** elected from each shard with the remaining as **backup** nodes. The leader can then broadcast block out to all the backup nodes in the shard so they can cast wether they agree on the validity of that block. Until or at least 2/3 of all node agress, the record will be accurate and added to the blockchain.
+
+Note that these blocks are **deterministic** (opposed to probabilisitic) finality and hence doesn't require *X confirmation blocks** to get the state of the blockchain. The **latest state block** will always to the trusted one.
+
+## ZIL
+Zil the token for Zilliqa was developed in 2017 and has a max supply of **21 000 000 000**. Like ETH being used to pay gas fee for contract execution on the Etheruem blockchain, ZIL is used as a **utility** token to pay transaction fees and Scilla smart contracts on the Zilliqa blockchain. Other than that it has the purpose of **incentives** for miners.
+
+
+---
+title: "Simply Cryptocurrency - The Graph"
+date: "2021-09-10"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/4znh3u27qxqgxf3/grt.png?raw=1"
+gradients: ["#736EFE", "#5EFCE8"]
+---
+
+## The Graph
+The Graph is an **indexing protocol** used for querying data on distributed networks. It aims to allow application to create public **API** that can help organise and management public data on a blockchain or databases such as on Etheruem, Binance, Cosmos and IPFS. Hence developers building a Dapp, can use and build on those data without a need of a server, rather it uses this public infrasture to collect and manage it data. 
+
+It's decentralisation comes from having nodes on the graph network that can process the requests.
+
+### Nodes
+There are more nodes on the graphs, but I think these two are the most important.
+
+**Indexers** 
+Indexers responsibility is to **stake** GRT that has been provided from users on the network. They in turn will **execute the query requests**. They will earns GRT for their services. Other responsibility is to ensure that the open APIs are available, truthworthy and maintains its decentralised properties.
+
+**Curators**
+Curators are nodes that oragnise the data for the public API created. These API have a sepcial name called **subgraph**. Curators fist analysis these subgraphs and potential subgraphs are signalled to the indexers **(curation)**. Having selected these subgraphs, developers can use them to easily found the more **accurate** data.
+
+**Delegators**
+They earn a portion of GRT from Indexers, since they delegates these indexers.
+
+### Subgraphs
+From the offical documentation, the subgraph is defined as, *which data The Graph will index from Ethereum, and how it will store it. Once deployed, it will form a part of a global graph of blockchain data*. From what I gathered it seem like just an **API** that directs and uses **GraphQL** to query a section of the blockchain that the API has specify. Hence the data will be in JSON format and can be easily managed using **Web3**.
+
+Just want to point out for me, I could use the graph as a framework in Dapp, rather than creating as custom push and pull oracle to store and manage on chain storage. This takes aways the complexity and add abstracts as well as time. However, this means that data is accessible to everyone. Not sure if there are any authentication involve such as API Key or something; but this might remove some of the blockchain properties.
+
+Going a little more technical, you'll need to use their CLI to build and deploy a subgraph. Usually, a subgraph consist of,
+- `subgraph.yaml` - a manifest file that describe the subgraph
+- `schema.graphQL` - schema on how data is structure and queried.
+- `AssemblyScript Mappings`
+
+### GRT
+**GRT** token is the native ERC-20 crytocurrency that powers the graph's blockchain. It purpose is mainly used for **staking** where Indexers nodes can earn GRT for *processing queries*. They can be also used for payments, goverance. They have a max supply of **10,057,044,431**.---
+title: "Simply Cryptocurrency - Harmony"
+date: "2021-09-17"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/ksn59urgkezh9md/one.png?raw=1"
+gradients: ["#c0c0aa", "#1cefff"]
+---
+
+## Harmony
+Harmony is a open blockchain platform that is designed to deploy Dapp. It utilise **sharding** which is aimed to be a tackle the problem Etheruem faces with block creations. For Harmony that is around 2 seconds compared to Etheruem ~14 seconds. On their mainnet, there are 4 shard that contain 1000 nodes.
+
+Sharding has proven to best for **scability** in blockchains. Harmony sharding process is **random**, meaning that it uses Verifiable Delay Function (VDF). 
+
+---
+
+**Verifiable Delay Function (VDF)** 
+*This sections talks about VDF in general.* VDF is a function that takes a N sequential numbers of step to **verify** and **evaluate**. This feature is desirable in decentralised system as it *generates randomness in a trustless environment*. The motivation for VDF is that randomness is very difficult to achieve. Especially on blockchain since randomness there, all suffer the inevitable problem of vulnerability and manipulation on determining how *randomness* is generated. Just a side note, that there is something called VRF, Verifiable Random Function.
+
+---
+
+This randomness ensure high security as it protects the network and the validating nodes by creating an **unbiased** and **unprediectable** manner of electing members of the network.
+
+Another feature in Harmony architecture is the ability to **connect to other blockchains** like Etheruem or Binance Smart Chain.
+
+## Fast Byzantine Fault Tolerance (FBFT)
+In short, Byzantine Fault Tolerance is a protocol to ensure consistency and liveliness in a distrbuted system. FBFT is a concensus, where instead of every validatoring broadcasting their votes, the leader signals to collects validator votes (they are given a multi-signature). This ensures that **O(1)** as the concept of collecting vote comes from that one signature instead of O(N) signature being called from N validators.
+
+## Effective Proof of Stake (EPoS)
+Harmony’s **Effective Proof-of-Stake (EPoS)** is . Going to general PoS, it usually consist of a *comittee*, that has an elected leader and other nodes (validators, block producers etc) that validates the blocks on the blockchain. Again in PoS, the amount of rewards for as an incentive for validating a bock is influenced by the amount of staking. Meaning the more the stake, the higher the reward, leading to the concept of *'rich get richer'* which has sort of a centralised nature.
+
+EPoS is introduced to avoid such and more centralisation concepts in staking, whilst being able to have staking. They do use the idea of ranking validators based on their **amount of stake** for the commitee. The reward however, is distributed in proportion to their **effective stake**. Effective stake is a formula defined as,
+
+```matlab
+effective_stake max(min(1+c) * medium_stake, actual_stake), (1-c) * medium_stake)
+where,
+c = protocol parameter,
+```
+
+The formula functions as high ranked validators will be punished for staking too much whilst the lower ranking validators get that reward, balancing out the stake among validators and most important **minimising centralisation** above.
+
+## ONE
+Harmony's native token is abbrievated as **ONE**. It is used for purposes such as staking (when participating in PoS concensus), gas fees, micropayments, voting and goverance. In terms of staking ONE on Harmony, any dishonest nodes will be filtered out by the secure network and have **double slasing** on their stake. It has a max supply of 12 600 000 000 tokens.---
+title: "Simply Cryptocurrency - Enjin"
+date: "2021-09-24"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/9vjhti995idvvci/enj.png?raw=1"
+gradients: ["#c471f5", "#c471f5"]
+---
+
+## Enjin
+Enjin is project that was launch on the Ethereum network in 2018. The purpose for Enjin was to create **blockchain base games** where users can create clans, chat and obtain and sell virtual items. One of the major features was the ability to allow developers to create and manage **in game items** as virtual tokens on the **Etheruem blockchain**. Specifically NFTs for unique and rare items. The correct term here is **mint** so these virutal items are minted and backed by Enjin Coin (ENJ), meaning they are assigned a value relative the ENJ. These minted tokens are stored on chain in form of **ERC-1155**.
+
+So Enjin isn't a blockchain, rather it a **gaming platform**. In term of technical, there isn't really much I can found so I'm really not sure, but from I can found, it just uses Etheruems goverance and concensus methods. There are various **SDK** to enable functionality such as
+- buying ENJ
+- minting in game items
+- playing game and acquiring virutal items
+- trading
+- selling
+Basically a marketplace for game items. These SDK makes sure that developers minimimse cost and complexity when trying to build and create on ENJ platform.
+
+## ENJ
+Enjin Coin (**ENJ**) is Enjin native **ERC-20** token. Like mentioned early, ENJ is used to an assignment value for the virutal items. ENJ has a max supply of **1 000 000 000** (1 billion).---
+title: "Simply Cryptocurrency - 0x"
+date: "2021-10-01"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/49lliai3q71lnee/0x.png?raw=1"
+gradients: ["#F05F57", "#360940"]
+---
+
+## 0x
+0x is a **protocol** launched in 2017 on the **Etheruem** network. It's purpose is to create easy **Peer to Peer exchanges** on the Etheruem. Through 0x, addresses can trade ERC-20 tokens and (uniquly) ERC-721 NFT on the 0x platform made from smart *contracts*. In more general terms, it is a **DEX**. What makes 0x unique is its ability to allow developers to build on top of their infrastructure creating **exchange functionalities** for applications.
+
+Others additions that the 0x protocol provides are the ability to rollback transactions without the need to pay for gas fee and interoperability between dApps.
+
+## Makers and Takers
+The 0x networks operates with two actors; 
+
+**Makers**
+Makers of a 0x network are users who create a **buy or sell order**
+
+**Takers**
+Takers are those who will fullfil the makers buy or sell requests. 
+
+## 0x Architecture
+**State Channel**
+State channel relies on taking computation *off chain*. This will obviously **cut transaction cost** on chain because it uses less resource. In 0x network, it is the storage of a transaction order that is kept off chain. By doing so, there will be **less congestions** in the network and lower gas fees.
+
+In terms of a concensus mechanism and other protocols, since 0x is built on the Etheruem blockchain, it'll use Etheruem proof etc.
+
+### ZRX
+0x's native token is **ZRX**. It is used for goverance on the 0x platform. This means ZRX holders can influence voting proposal to the protocol. Another major use case is for paying **trading fees** and for **staking** in pools, for ETH rewards.. There is a max supply of **1 000 000 000**.
+
+*In terms of more information about 0x, I really didn't think they have much to offer, When researching for crytocurrency I try to look for unique features. 0x for me was just other like any other DEX out there, boasting about its decentralisation for fast and ease of an exchange with better pricing and a large liquidity pool.*---
+title: "Simply Cryptocurrency - Avalanche"
+date: "2021-10-08"
+tags: ["Cryptocurrency"]
+image: "https://www.dropbox.com/s/alf2blk6q710grk/avax.png?raw=1"
+gradients: ["#FFA8A8", "#FCFF00"]
+---
+
+## Avalanche
+The Avalanche ecosystem used for building **smart contracts** catered to finance such as decentralised finance, trading and economics. Launched in 2020, the smart contract platform is meant to be have the **fastest standard transactions finality** (1 sec) with one of the **most validators** in a network securing the blockchain. This means low cost and **eco-friendly**.
+
+AVAX uses the typical proof of stake concensus mechanism to valid transactions on the blockchains. Since there are **millions** of validators, this process can easily be done. It is said to be able to work with the Etheruem Virtual Machine (EVM) meaning it is compatible with the `Solidity` language.
+
+### Primary Network
+The primary network is the global hub for Avalanche's blockchain,
+- **Exchange Chain (X-Chain)** - The platform used to **trade assets**.
+- **Platform Chain (P-chain** - This is where subnets are managed and validators are coordinated. It contain **metadata** about the Avalanche.
+- **Contract Chain (C-Chain)** - This is where **smart contracts** are created.
+
+Some important to note here is the relationships in the Avalanche network. So, Primary is the top layer, where 
+
+Node on the network which are validators are members to one or more subnets. There exist these **subnets** which will contain a *dynamic* quantity of nodes (validators) and are tasked to achieve concensus to many blockchains. In terms of these validators, they don't have much pravcy as, in order to be a validator to stake rewards and maintain the network, they'll need to give up the **location, KYC and hold a valid licence**.
+
+### Snowman
+Since Avalance uses is a **DAG** rather than a linear *block chain* of hashes, **Snowman** is a concensus protocol that is used specifically for the **linear chain**. It high throughput makes it optimised for smart contract, which the C-chain uses. 
+
+The protocol works like this (the official documentation with detailed out version but here's my take), a transaction whether accepted or rejected is broadcast to `k` number of validators. When a quorum `q` is reached the result is added to a counter `c`. That it if the transaction was accepted at `q` number of nodes, then `valid` is set to `true` and `c` would increase from `1` to `2`. converserly if the transaction was rejected, then the counter resets to `1` and the `valid` is set to `false`. this process is repeat for everyone a response if the same for `x` amount of time. That is `x` is set to `5` and accepted has been `q`ed 5 times, then the transaction is **valid**. Of course the parameters will be set.
+
+## AVAX
+**AVAX** is the native token with only **720 000 000** tokens in existance; meaning there not a lot compared to other cryptocurrencies. `1 nAVAX` is equal to `0.000000001 AVAX`. This low capped asset is used to pay for fees, reward stakers for securing via proof of stake and other **utility services**. A interesting not with AXAX is that **transaction fees made to the network are burnt**, give the **scarcity** to the token. 

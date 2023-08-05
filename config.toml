@@ -1,0 +1,32 @@
+baseURL = 'https://z5208980.github.io/blog'
+languageCode = 'en-us'
+title = 'Blog'
+
+theme = "main"
+sectionPagesMenu = "main"
+
+[author]
+name = "Peter Tran"
+email = ""
+
+[taxonomies]
+category = 'categories'
+tag = 'tags'
+
+[markup.goldmark.renderer]
+unsafe= true
+
+paginate= 4
+
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = true
+
+  [[related.indices]]
+    name = "title"
+    weight = 50
+
+  [[related.indices]]
+    name = "tags"
+    weight = 50
