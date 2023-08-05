@@ -16,8 +16,7 @@
                 <div class="blog-publish" datetime="2020-07-20T00:00:00Z">Published on {{ .PublishDate.Format "January 2, 2006" }}</div>
                 {{ $taxonomy := "tags" }} {{ with .Param $taxonomy }}
                     <ul class="tag">
-                    {{ range $index, $tag := . }} {{ with $.Site.GetPage (printf "/%s/%s"
-                    $taxonomy $tag) -}}
+                    {{ range $index, $tag := . }} {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
                         <li>
                             <a href="{{ .Permalink }}">{{ $tag | urlize }}</a>
                         </li>
